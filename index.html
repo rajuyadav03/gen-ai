@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Fun Facts Generator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 50px 0;
+            background: linear-gradient(150.4deg, rgba(75, 255, 237, 1) 11.7%, rgba(32, 42, 235, 1) 82.4%);
+            color: white;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        #fact-image {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        #fact-display {
+            margin-top: 10px;
+            font-size: 20px;
+            padding: 15px;
+            max-width: 80%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                margin: 20px;
+                font-size: 16px;
+            }
+
+            button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            #fact-display {
+                font-size: 18px;
+                padding: 10px;
+            }
+
+            #fact-image {
+                width: 180px;
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🎉 Fun Facts About Me! 🎉</h1>
+    
+    <img id="fact-image" src="https://source.unsplash.com/250x250/?random" alt="Fun Fact Image">
+    
+    <div id="fact-display">Click the button to see a fun fact!</div>
+    
+    <button onclick="generateFact()">Generate Another Fun Fact</button>
+
+    <script>
+        const facts = [
+            { text: "I love hiking.", image: "https://source.unsplash.com/250x250/?hiking,mountains" },
+            { text: "I am more interested in AI and ML.", image: "https://source.unsplash.com/250x250/?artificial-intelligence,robot" },
+            { text: "I am an avid coder and love to code often.", image: "https://source.unsplash.com/250x250/?coding,programming" },
+            { text: "I once cooked a Taco.", image: "https://source.unsplash.com/250x250/?taco,food" },
+            { text: "I speak three languages fluently.", image: "https://source.unsplash.com/250x250/?language,communication" },
+            { text: "I’m learning to play the guitar in my free time.", image: "https://source.unsplash.com/250x250/?guitar,music" }
+        ];
+
+        function generateFact() {
+            const factDisplay = document.getElementById('fact-display');
+            const factImage = document.getElementById('fact-image');
+            const randomIndex = Math.floor(Math.random() * facts.length);
+
+            factDisplay.textContent = facts[randomIndex].text;
+            factImage.src = facts[randomIndex].image;
+            factImage.alt = facts[randomIndex].text;
+        }
+    </script>
+</body>
+
+</html>
